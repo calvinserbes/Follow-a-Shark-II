@@ -65,7 +65,7 @@ CREATE TABLE Question (
   id INT PRIMARY KEY AUTO_INCREMENT,
   quiz_id INT,
   question_label TEXT,
-  reponse_label TEXT,
+  bonne_reponse TEXT,
   image TEXT,
   FOREIGN KEY (quiz_id) REFERENCES Quiz (id)
 );
@@ -94,7 +94,7 @@ SET @quiz_id = LAST_INSERT_ID();
 
 -- Insérer les questions et réponses du quiz sur les requins
 -- Question 1
-INSERT INTO Question (quiz_id, question_label, reponse_label) VALUES (@quiz_id, 'Quel est le plus grand requin du monde?', 'D) Requin baleine');
+INSERT INTO Question (quiz_id, question_label, bonne_reponse) VALUES (@quiz_id, 'Quel est le plus grand requin du monde?', 'D) Requin baleine');
 SET @question_id1 = LAST_INSERT_ID();
 INSERT INTO Reponse (question_id, label) VALUES (@question_id1, 'A) Requin-taureau');
 INSERT INTO Reponse (question_id, label) VALUES (@question_id1, 'B) Requin-marteau');
@@ -102,7 +102,7 @@ INSERT INTO Reponse (question_id, label) VALUES (@question_id1, 'C) Grand requin
 INSERT INTO Reponse (question_id, label) VALUES (@question_id1, 'D) Requin baleine');
 
 -- Question 2
-INSERT INTO Question (quiz_id, question_label, reponse_label) VALUES (@quiz_id, 'Quel requin est connu pour son apparence aplatie?', 'B) Requin-marteau');
+INSERT INTO Question (quiz_id, question_label, bonne_reponse) VALUES (@quiz_id, 'Quel requin est connu pour son apparence aplatie?', 'B) Requin-marteau');
 SET @question_id2 = LAST_INSERT_ID();
 INSERT INTO Reponse (question_id, label) VALUES (@question_id2, 'A) Requin-taureau');
 INSERT INTO Reponse (question_id, label) VALUES (@question_id2, 'B) Requin-marteau');
@@ -110,7 +110,7 @@ INSERT INTO Reponse (question_id, label) VALUES (@question_id2, 'C) Grand requin
 INSERT INTO Reponse (question_id, label) VALUES (@question_id2, 'D) Requin baleine');
 
 -- Question 3
-INSERT INTO Question (quiz_id, question_label, reponse_label) VALUES (@quiz_id, 'Quel requin est connu pour être le plus grand prédateur des océans?', 'C) Grand requin blanc');
+INSERT INTO Question (quiz_id, question_label, bonne_reponse) VALUES (@quiz_id, 'Quel requin est connu pour être le plus grand prédateur des océans?', 'C) Grand requin blanc');
 SET @question_id3 = LAST_INSERT_ID();
 INSERT INTO Reponse (question_id, label) VALUES (@question_id3, 'A) Requin-taureau');
 INSERT INTO Reponse (question_id, label) VALUES (@question_id3, 'B) Requin-marteau');
@@ -118,7 +118,7 @@ INSERT INTO Reponse (question_id, label) VALUES (@question_id3, 'C) Grand requin
 INSERT INTO Reponse (question_id, label) VALUES (@question_id3, 'D) Requin baleine');
 
 -- Question 4
-INSERT INTO Question (quiz_id, question_label, reponse_label) VALUES (@quiz_id, 'Quel requin est connu pour sa taille massive et sa couleur grise?', 'A) Requin-taureau');
+INSERT INTO Question (quiz_id, question_label, bonne_reponse) VALUES (@quiz_id, 'Quel requin est connu pour sa taille massive et sa couleur grise?', 'A) Requin-taureau');
 SET @question_id4 = LAST_INSERT_ID();
 INSERT INTO Reponse (question_id, label) VALUES (@question_id4, 'A) Requin-taureau');
 INSERT INTO Reponse (question_id, label) VALUES (@question_id4, 'B) Requin-marteau');
