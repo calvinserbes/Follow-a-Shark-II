@@ -1,19 +1,34 @@
-.social {
+.follow {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow h2 {
+    font-family: 'Roboto', serif;
+    font-weight: 400;
+}
+
+.follow .social {
+    width: 100%;
     height: auto;
-    background: #fdfbea;
+    background: #fffef8;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom: 5px solid #FF6B00;
 }
 
-.social a {
+.follow .social a {
     margin: 25px;
     text-decoration: none;
     color: rgb(0, 0, 0);
     transition: 0.3s;
 }
-.social a i {
+.follow .social a i {
     transition: 0.3s;
     font-size: 40px;
 }
@@ -21,3 +36,4 @@
 .fa-brands:hover {
     color: #FF6B00;
 }
+

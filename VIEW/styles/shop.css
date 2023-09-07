@@ -1,0 +1,19 @@
+.shop {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.shop .card {
+    margin: 10px;
+}
+
+.shop .card .image {
+    width: 300px;
+    height: 300px;
+}
+
+.shop .card .image img {
+    width: 100%;
+}

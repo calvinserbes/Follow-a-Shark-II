@@ -52,6 +52,10 @@
                 perspiciatis officia consequuntur libero laudantium in quam 
                 corrupti culpa vitae non similique. 
                 Sunt necessitatibus earum similique?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Rem maxime nisi expedita unde reiciendis, 
+                perspiciatis officia consequuntur libero laudantium in quam 
+                corrupti culpa vitae non similique. 
               </p>
               <button class="btn">Lorem</button>
             </div>
@@ -60,6 +64,12 @@
         </article>
         
           <?php include_once "social.php";?>
+
+        <div class="test">
+
+        </div>
+
+        <div class="testt"></div>
     </div>
 
 

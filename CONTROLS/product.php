@@ -4,7 +4,7 @@
     $name = $_POST['name'];
     $description = $_POST['description'];
     $image = $_POST['image'];
-    $price = $_POST['price'];
+    // $price = $_POST['price'];
 
     $mysqli = new mysqli("127.0.0.1", "calvin", "mdp", "FAS");
 

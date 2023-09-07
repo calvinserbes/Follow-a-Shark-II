@@ -80,7 +80,9 @@
 }
 
 .plonger {
-    margin-top: 50px;
+    font-family: 'Roboto', serif;
+    margin-top: 150px;
+    margin-bottom: 50px;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -98,6 +100,33 @@
 }
 
 .text_plongeur {
+    padding: 50px;
+}
 
+.text_plongeur h2 {
+    font-size: 35px;
+    margin-bottom: 50px;
+}   
+
+.text_plongeur p {
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+
+.text_plongeur .btn {
+    font-size: 23px;
+    border: none;
+    color: #fff;
+    margin-top: 25px;
+}
+
+.test {
+    height: 200vh;
+    background: url('../assets/images/pictures/whale-shark2000.jpg') center;
+    background-size: cover;
+}
+
+.testt {
+    height: 150vh;
 }
 

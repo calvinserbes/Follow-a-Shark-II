@@ -11,7 +11,7 @@
     <?php include_once "../debug.php";?>
     <?php 
         include_once "../CONTROLS/product.php";
-        $newprod = read($mysqli, $name, $description, $image, $price)    
+        $newprod = read($mysqli, $name, $description, $image)    
     ?>
     <?php include_once "navigation.php";?>
 
@@ -20,18 +20,17 @@
     <?php for ($i = 0; $i < count($newprod); $i++){ ?>
         <div class="card">
             <div class="image">
-                <?php echo $newprod[$i]["image"];?>
-                <img src="" alt="">
+                <img src="<?php echo $newprod[$i]["image"];?>" alt="">
             </div>
             <div class="info">
                 <p class="nom">
                     <?php echo $newprod[$i]['name'];?>
                 </p>
                 <p class="price">
-                <?php echo $newprod[$i]['price'];?>
+                    <?php echo $newprod[$i]['price'];?>
                 </p>
             </div>
-            <a href="" class="buy"></a>
+            <a href="" class="buy btn">Buy</a>
         </div>
     <?php };?>   
 
