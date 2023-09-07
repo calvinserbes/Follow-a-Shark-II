@@ -1,0 +1,23 @@
+.social {
+    height: auto;
+    background: #fdfbea;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social a {
+    margin: 25px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
+.social a i {
+    transition: 0.3s;
+    font-size: 40px;
+}
+
+.fa-brands:hover {
+    color: #FF6B00;
+}
