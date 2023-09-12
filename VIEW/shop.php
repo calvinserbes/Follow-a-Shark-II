@@ -33,7 +33,7 @@
 
     </div>
     
-    <script src="script/navigation.js"></script>
+    <script src="script/mobileMenu.js"></script>
     <script>
         let nav = document.querySelector('.navigation');
         nav.classList.add('nav_shop');

@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <script src="script/navigation.js"></script>
+    <script src="script/mobileMenu.js"></script>
     <script>
     function checkAnswer(questionId) {
         const formData = new FormData(document.getElementById('quizForm'));

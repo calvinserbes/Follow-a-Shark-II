@@ -65,7 +65,8 @@
     </div>
 
 
-    <script src="script/navigation.js"></script>
+    <script src="script/mobileMenu.js"></script>
+    <script src="script/colorScrollNav.js"></script>
     <script>
     // video player
     let video = document.querySelector(".background-video");
