@@ -11,6 +11,8 @@
     <?php include_once "navigation.php";?>
     <div class="cart" style='margin-top: 200px;'>
     </div>
+    
+    <script src="script/navigation.js"></script>
     <script>
         let nav = document.querySelector('.navigation');
         nav.classList.add('nav_shop');

@@ -1,3 +1,16 @@
+<?php 
+    include_once '../CONTROLS/quiz.php';
+    $quizz = htmlspecialchars(readQuiz(1));  
+    $questions = readQuestions(1);
+
+    $questionsWithReponses = [];
+    foreach ($questions as $question) {
+        $questionId = $question['id'];
+        $reponses = readReponse($questionId);
+        $question['reponses'] = $reponses;
+        $questionsWithReponses[] = $question;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,42 +20,77 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="styles/all.css">
     <link rel="stylesheet" href="styles/quiz.css">
+    <?php include_once "assets/fonts/font.php";?>
 </head>
 
 <body>
-    <?php include_once '../debug.php';?>
-    <?php 
-        include_once '../CONTROLS/quiz.php';
-        $quizz = readQuiz(1);
-        $question = readQuestions(1);
-    ?>
+    <?php include_once 'navigation.php'; ?>
 
-    <?php include_once 'navigation.php';?>
-
-    <div class="quiz" style='margin-top: 300px;'>
+    <div class="quiz">
 
         <div class="quiz_container">
+            <h3 class="quiz_name"><?php echo $quizz; ?></h3>
+            <form id="quizForm" action="verifier_reponses.php" method="post">
 
-            <h3 class="quiz_name"><?php echo $quizz;?></h3>
+                <?php foreach ($questionsWithReponses as $index => $question) { ?>
+                    <div class="qcm" data-question-index="<?php echo $index; ?>" style="<?php echo ($index !== 0) ? 'display:none;' : ''; ?>">
+                        <p class="question"><?php echo htmlspecialchars($question['question_label']); ?></p>
+                            <?php foreach ($question['reponses'] as $rIndex => $reponse) { ?>
+                                <div class="rep">
+                                    <label for="q<?php echo $question['id']; ?>_r<?php echo $rIndex; ?>">
+                                        <input type="radio" id="q<?php echo $question['id']; ?>_r<?php echo $rIndex; ?>"
+                                            name="question_<?php echo $question['id']; ?>"
+                                            value="<?php echo htmlspecialchars($reponse[0]); ?>">
+                                            <?php echo htmlspecialchars($reponse[0]);?>
+                                            <div class="check"></div>
+                                    </label>
+                                </div>
+                            <?php } ?>
 
-            <?php for ($i = 0; $i < count($question); $i++)
-                    { $reponse = readReponse($i + 1);
-                ?>
-            <div class="qcm">
-                <p class="question"><?php echo $question[$i][0];?></p>
-                <?php for ($j = 0; $j < count($reponse); $j++){ ?>
-                <a class="reponse"><?php echo $reponse[$j][0]; ?></a>
-                <?php }; ?>
-            </div>
-            <?php }; ?>
+                        <button type="button" onclick="checkAnswer(<?php echo $question['id']; ?>)">
+                            Envoyer
+                        </button>
+                    </div>
+                <?php } ?>
 
+            </form>
         </div>
     </div>
 
+    <script src="script/navigation.js"></script>
     <script>
-    let nav = document.querySelector('.navigation');
-    nav.classList.add('nav_shop');
+    function checkAnswer(questionId) {
+        const formData = new FormData(document.getElementById('quizForm'));
+        const selectedAnswer = formData.get('question_' + questionId);
+
+        fetch('../CONTROLS/verifier_reponses.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'question_id': questionId,
+                    'answer': selectedAnswer
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.is_correct) {
+                    alert('Bonne réponse momo le bg !');
+                } else {
+                    alert('Mauvaise réponse. La bonne réponse est: ' + data.correct_answer);
+                }
+
+                const currentQcm = document.querySelector(`.qcm[data-question-index="${questionId - 1}"]`);
+                const nextQcm = currentQcm.nextElementSibling;
+                if (nextQcm) {
+                    currentQcm.style.display = 'none';
+                    nextQcm.style.display = 'flex';
+                } else {
+                    alert('Quiz terminé!');
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+    }
     </script>
+
 </body>
 
 </html>

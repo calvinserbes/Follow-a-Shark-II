@@ -1,4 +1,104 @@
-.quiz .reponse {
-    color: black;
-    cursor: pointer;
+.quiz {
+    font-family: 'Roboto', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/images/pictures/wow.jpg') center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.quiz_container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 40px;
+    color: #fff;
+}
+
+.quiz_name {
+    display: none;
+}
+
+.qcm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 550px;
+}
+
+.qcm button {
+    box-shadow: 10px 11px 14px -3px rgba(0,0,0,0.66);
+    transition: .3s;
+    letter-spacing: 3px;
+    font-family: 'Roboto', serif;
+    font-weight: 500;
+    font-size: 15px;
+    background: #FF6B00;
+    padding: 5px 10px 5px 15px;
+    border-radius: 15px;
+    color: #fff;
+    border: none;
+}
+
+.qcm button:hover {
+    color: #006067;
+    background: #fff;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffff;
+    margin-bottom: 50px;
+}
+
+.rep {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffff;
+    width: 250px;
+    height: 50px;
+}
+
+.rep label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rep label > input[type="radio"] {
+    display: none;
+}
+
+.rep label > input[type="radio"] + *::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.3rem;
+    border-radius: 50%;
+    border: solid 3px #ffffff;
+}
+
+.rep label > input[type="radio"]:checked + *::before {
+    background: radial-gradient(teal 0%, teal 40%, transparent 50%, transparent);
+    border-color: rgb(255, 255, 255);
+}
+
+.rep label > input[type="radio"]:checked + * {
+    color: teal;
 }

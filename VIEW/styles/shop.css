@@ -5,15 +5,75 @@
     flex-wrap: wrap;
 }
 
+.forview_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .shop .card {
-    margin: 10px;
-}
-
-.shop .card .image {
     width: 300px;
-    height: 300px;
+    height: 250px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.shop .card .image img {
+.view {
+    font-family: 'Roboto', serif;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background: #FF6B00;
+    color: #fff;
+    cursor: pointer;
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto', serif;
+    color: #fff;
+    height: 100%;
     width: 100%;
+    background: #003b40cf;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out;
+}
+
+.card .info .name {
+    padding: 10px;
+    font-weight: 500;
+}
+
+.card .info .price {
+    color: #FF6B00;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.card .info .description {
+    font-size: 15px;
+    text-align: start;
+    padding: 25px;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.card .info .buy {
+    margin: 5px;
+}
+
+
+.card .info.view_info {
+    max-height: 1000px; 
+}
+
+.card .info:hover {
+    height: 100%;
 }
