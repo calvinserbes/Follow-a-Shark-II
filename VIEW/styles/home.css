@@ -111,10 +111,11 @@
 .text_plongeur p {
     letter-spacing: 3px;
     font-size: 20px;
+    margin-bottom: 50px;
 }
 
 .text_plongeur .btn {
-    font-size: 23px;
+    font-size: 18px;
     border: none;
     color: #fff;
     margin-top: 25px;

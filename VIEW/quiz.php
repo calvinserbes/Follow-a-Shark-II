@@ -1,5 +1,5 @@
 <?php 
-    include_once '../CONTROLS/quiz.php';
+    include_once '../MODEL/quiz.php';
     $quizz = htmlspecialchars(readQuiz(1));  
     $questions = readQuestions(1);
 
@@ -63,7 +63,7 @@
         const formData = new FormData(document.getElementById('quizForm'));
         const selectedAnswer = formData.get('question_' + questionId);
 
-        fetch('../CONTROLS/verifier_reponses.php', {
+        fetch('../MODEL/verifier_reponses.php', {
                 method: 'POST',
                 body: new URLSearchParams({
                     'question_id': questionId,

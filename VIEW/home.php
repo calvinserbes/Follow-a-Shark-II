@@ -49,7 +49,7 @@
                 perspiciatis officia consequuntur libero laudantium in quam 
                 corrupti culpa vitae non similique. 
               </p>
-              <button class="btn">Lorem</button>
+              <a class="btn" href="quiz.php">Essayer notre Quizz !</a>
             </div>
         </div>
 
@@ -58,7 +58,7 @@
           <?php include_once "social.php";?>
 
         <div class="test">
-
+            
         </div>
 
         <div class="testt"></div>

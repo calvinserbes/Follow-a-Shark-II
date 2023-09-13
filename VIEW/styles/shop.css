@@ -1,4 +1,31 @@
-.shop {
+/* title */
+.shop_title {
+    height: 100vh;
+    width: 100%;
+    background: url('../assets/images/pictures/ide4.jpg') center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', serif;
+    color: #fff;
+}
+
+.shop_title .gift {
+    font-weight: 400;
+    font-size: 75px;
+}
+
+.shop_title .g_shop {
+    margin-top: -50px;
+    font-size: 175px;
+}
+
+/* le shop */
+.shop_container {
+    margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -11,13 +38,16 @@
     align-items: center;
 }
 
+/* card shop */
 .shop .card {
-    width: 300px;
-    height: 250px;
+    width: 250px;
+    height: 200px;
     margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    border-bottom: 3px solid #FF6B00;
+
 }
 
 .view {
@@ -61,19 +91,39 @@
     text-align: start;
     padding: 25px;
     overflow: scroll;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     overflow-x: hidden;
 }
 
 .card .info .buy {
     margin: 5px;
+    font-size: 13px;
 }
 
 
 .card .info.view_info {
+    overflow: visible;
     max-height: 1000px; 
 }
 
 .card .info:hover {
     height: 100%;
+}
+
+.forview_info form .controls a {
+    color: #000;
+}
+
+.forview_info form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.test {
+    height: 150vh;
+    width: 100%;
+    background: url('../assets/images/pictures/nourice.jpg') center;
+    background-size: cover;
 }

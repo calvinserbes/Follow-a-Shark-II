@@ -9,38 +9,54 @@
 </head>
 <body>
     <?php 
-        include_once "../CONTROLS/product.php";
-        $newprod = read($mysqli, $name, $description, $image)    
+        include_once "navigation.php";
+        include_once "../debug.php";
+        include_once "../MODEL/product.php";
+        $newprod = read($mysqli)    
         ?>
-    <?php include_once "navigation.php";?>
     
-    <div class="shop" style="margin-top: 200px;">
-        <?php include_once "../debug.php";?>
-        
-        <?php foreach ($newprod as $product) {?>
-            <div class="forview_info">
-                <div class="card" style="background: url('<?php echo $product["image"]; ?>') center; background-size: cover;">
-                    <div class="info">
-                            <p class="name"><?php echo $product['name']; ?></p>
-                            <p class="price">$<?php echo $product['price']; ?></p>
-                            <p class="description"><?php echo $product['description'];?></p>
-                            <a href="" class="buy btn">Add to basket</a>
-                    </div>
-                </div>
-                <div onclick="toogleInfo()" class="view">View</div>
-            </div>
-        <?php }; ?>
+    <div class="shop">
 
+        <div class="shop_title">
+            <h3 class="gift">Gift</h3>
+            <h2 class="g_shop">Shop</h2>
+        </div>
+
+        <div class="shop_container">
+        
+            <?php foreach ($newprod as $product) {?>
+                <div class="forview_info">
+                    <form action="">
+                        <div class="card" style="background: url('<?php echo $product["image"]; ?>') center; background-size: cover;">
+                            <div class="info">
+                                    <p class="name"><?php echo $product['name']; ?></p>
+                                    <p class="price">$<?php echo $product['price']; ?></p>
+                                    <p class="description"><?php echo $product['description'];?></p>
+                                    <a href="" class="buy btn">Add to basket</a>
+                            </div>
+                        </div>
+                        <!-- instruction if$SESSION a ajouter quand on créera session admin -->
+                        <div class="controls">
+                            <a class="delete" href="../CONTROLS/product.php?id=<?= $product['id'];?>">Delete</a>
+                            <a class="update" href="">Update</a>
+                        </div>
+                    </form>
+                    <div onclick="toogleInfo(this)" class="view">View</div>
+                </div>
+            <?php }; ?>
+
+        </div>
+            
+        <?php include_once "social.php";?>
+        <div class="test"></div>
     </div>
     
     <script src="script/mobileMenu.js"></script>
+    <script src="script/colorScrollNav.js"></script>
     <script>
-        let nav = document.querySelector('.navigation');
-        nav.classList.add('nav_shop');
-
         // for shop card
-        function toogleInfo() {
-            const info = document.querySelector('.info');
+        function toogleInfo(e) {
+            const info = e.previousElementSibling.querySelector('.info');
             info.classList.toggle('view_info');
         }
     </script>
