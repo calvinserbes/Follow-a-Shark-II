@@ -1,3 +1,7 @@
+.roboto {
+    font-family: 'Roboto', serif;
+}
+
 /* title */
 .shop_title {
     height: 100vh;
@@ -42,7 +46,7 @@
 .shop .card {
     width: 250px;
     height: 200px;
-    margin: 20px;
+    margin: 10px 5px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -57,6 +61,7 @@
     background: #FF6B00;
     color: #fff;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .card .info {
@@ -126,4 +131,52 @@
     width: 100%;
     background: url('../assets/images/pictures/nourice.jpg') center;
     background-size: cover;
+}
+
+/* ADMIN PANEL */
+.controls {
+    border-top: 3px solid #00D3B2;
+    background: #454545;
+    padding: 10px;
+    width: 97%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.added_prod {
+    border-top: 3px solid #00D3B2;
+    padding: 25px 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #454545;
+}
+
+.added_prod form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.added_prod form .input {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.added_prod form .input input {
+    padding: 5px;
+}
+
+.added_prod form .ajouter {
+    cursor: pointer;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background: #282828;
+    color: #fff;
+    font-weight: 500;
 }

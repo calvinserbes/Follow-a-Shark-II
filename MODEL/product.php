@@ -1,27 +1,31 @@
 <?php
     include_once '../MODEL/config.php';
 
-    // vérifié si c'est un post
-    // $name = $_POST['name'];
-    // $description = $_POST['description'];
-    // $image = $_POST['image'];
-    // $price = $_POST['price'];
-
     $mysqli = new mysqli("127.0.0.1", "calvin", "mdp", "FAS");
 
     if ($mysqli->connect_error) {
         die('la connexion a la base de données a échouer' . $mysqli->connect_error);
-    }
+    };
 
     function read($mysqli) {
-        $result = $mysqli->query('SELECT * FROM product');
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+        $req = $mysqli->query('SELECT * FROM product');
+        return $req->fetch_all(MYSQLI_ASSOC);
+    };
+
+    //faire function readById
+    function readById($mysqli, $id) {
+        $req = 'SELECT * FROM product WHERE id = ?';
+        $stmt = $mysqli->prepare($req);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    };
 
 
     function deleteProduct($mysqli, $product_id) {
-        $query = "DELETE FROM product WHERE id = ?";
-        $stmt = $mysqli->prepare($query);
+        $req = "DELETE FROM product WHERE id = ?";
+        $stmt = $mysqli->prepare($req);
         if ($stmt === false) {
             die("Erreur de préparation de la requête : " . $mysqli->error);
         }
@@ -32,5 +36,20 @@
             die("Erreur d'exécution de la requête : " . $stmt->error);
         }
         $stmt->close();
-    }
+    };
+
+    function createProduct($mysqli, $name, $description, $image, $price) {
+        $req = "INSERT INTO product (name, description, image, price) VALUES (?, ?, ?, ?)";
+        $stmt = $mysqli->prepare($req);
+        if (!$stmt) {
+            die('Erreur de préparation de la requête : ' . $mysqli->error);
+        }
+        $stmt->bind_param('ssss', $name, $description, $image, $price);
+        if ($stmt->execute()) {
+            echo "Article a bien étais ajouter";
+        } else {
+            echo "Erreur lors de l'ajout de l'article : " . $stmt->error;
+        }
+        $stmt->close();
+    };
 ?>

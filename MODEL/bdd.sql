@@ -8,6 +8,20 @@ CREATE USER calvin@'127.0.0.1' IDENTIFIED BY 'mdp';
 
 GRANT ALL PRIVILEGES ON FAS.*to calvin@'127.0.0.1';
 
+-- user
+CREATE TABLE `user` (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  admin BOOLEAN,
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255)
+);
+
+INSERT INTO user (id, admin, username, password, email, first_name, last_name) VALUES (1, 1, "admin", "admin", 'admin@mail.com', 'calvin', 'serbes');
+INSERT INTO user (id, admin, username, password, email, first_name, last_name) VALUES (2, 0, "calvin", "serbes", "calvin@gmail.com", "calvin", "serbes");
+
 -- shop
 CREATE TABLE `product` (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -16,6 +30,21 @@ CREATE TABLE `product` (
   image TEXT,
   price FLOAT
 );
+
+CREATE TABLE `order` (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id_client INT,
+  FOREIGN KEY (id_client) REFERENCES `user` (id)
+);
+
+CREATE TABLE `ligne_co` (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  id_prod INT,
+  id_order INT,
+  qt INT,
+  FOREIGN KEY (id_prod) REFERENCES `product` (id),
+  FOREIGN KEY (id_order) REFERENCES `order` (id)
+)
 
 INSERT INTO product (name, description, image, price)
 VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/1.png', 10);

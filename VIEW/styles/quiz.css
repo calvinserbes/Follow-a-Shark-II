@@ -10,12 +10,12 @@
 }
 
 .quiz_container {
+    backdrop-filter: brightness(40%);
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
     padding: 10px;
     border-radius: 25px;
 }

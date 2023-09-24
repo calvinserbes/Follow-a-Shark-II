@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +30,8 @@
               </div>
 
                 <button id="btnVideo" onclick="playAndPause()">II</button>
+                
+                <h3>Hi, <b class="hi"><?php echo $_SESSION["username"];?></b>.</h3>
         </header>
 
         <article class="plonger">

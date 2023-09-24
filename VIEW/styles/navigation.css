@@ -12,12 +12,31 @@
     position: fixed;
 }
 
-/* style de la navigation sur le shop */
-.nav_shop{
+/* style de la navigation sur le panier */
+.nav_cart{
     transition: none;
-    background: #006067;
+    backdrop-filter: blur(5px);
 }
 
+/* nav register */
+.nav_register {
+    background: #fff;
+    border-bottom: 3px solid #006067;
+}
+
+.nav_register a {
+    color: #006067;
+}
+
+.nav_register .btn {
+    transition: .5s;
+    background: #fff;
+}
+
+.nav_register .btn:hover {
+    background: #006067;
+    color: #fff;
+}
 
 /* color-change = style au scroll sur le home */
 .color-change {

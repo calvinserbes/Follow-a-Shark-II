@@ -4,4 +4,6 @@
     include_once "../MODEL/product.php";
     $mysqli = new mysqli("127.0.0.1", "calvin", "mdp", "FAS");
     deleteProduct($mysqli, $_GET["id"]);
+
+    header("Location: ../VIEW/shop.php");
 ?>
