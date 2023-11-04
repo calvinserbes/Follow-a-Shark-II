@@ -8,7 +8,7 @@
     };
 
     function read($mysqli) {
-        $req = $mysqli->query('SELECT * FROM product');
+        $req = $mysqli->query('SELECT id, name, description, image, price FROM product');
         return $req->fetch_all(MYSQLI_ASSOC);
     };
 
@@ -26,15 +26,8 @@
     function deleteProduct($mysqli, $product_id) {
         $req = "DELETE FROM product WHERE id = ?";
         $stmt = $mysqli->prepare($req);
-        if ($stmt === false) {
-            die("Erreur de préparation de la requête : " . $mysqli->error);
-        }
         $stmt->bind_param("i", $product_id);
-        if ($stmt->execute() === true) {
-            return true;
-        } else {
-            die("Erreur d'exécution de la requête : " . $stmt->error);
-        }
+        $stmt->execute();
         $stmt->close();
     };
 

@@ -14,39 +14,20 @@
     <div class="register">
 
         <form action="../CONTROLS/register.php" method="post">
-
-            <div class="input_form">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="input_form">
-                <label for="password">Password</label>
-                <input type="text" name="password" id="password">
-            </div>
-            <div class="input_form">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email">
-            </div>
-            <div class="input_form">
-                <label for="first_name">First Name</label>
-                <input type="text" name="first_name" id="first_name">
-            </div>
-            <div class="input_form">
-                <label for="last_name">Last Name</label>
-                <input type="text" name="last_name" id="last_name">
+            <div class="input">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="text" name="email" id="email" placeholder="Email">
+                <input type="text" name="first_name" id="first_name" placeholder="First name">
+                <input type="text" name="last_name" id="last_name" placeholder="Last name">
             </div>
 
-            <input type="submit" value="Submit">
-            <a href="login.php">Login</a>
-
+            <input class="submit_register" type="submit" value="Submit">
+            <span>or</span>
+            <a class="login_link" href="login.php">Login</a>
         </form>
         
     </div>
-
-    <script>
-        let nav = document.querySelector('.navigation');
-        nav.classList.add('nav_register');
-    </script>
     
 </body>
 </html>

@@ -101,8 +101,15 @@
 }
 
 .card .info .buy {
+    color: #fff;
+    border: none;
     margin: 5px;
     font-size: 13px;
+}
+
+.card .info .buy:hover {
+    color: #006067;
+    background: #fff;
 }
 
 

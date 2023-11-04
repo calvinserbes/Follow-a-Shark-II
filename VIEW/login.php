@@ -11,15 +11,12 @@
     <?php include_once "navigation.php";?>
     <div class="login">
         <form action="../CONTROLS/login.php" method="post">
-            <div class="input_form">
-                <label for="username"></label>
-                <input type="text" name="username" id="username">
+            <div></div>
+            <div class="input">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
             </div>
-            <div class="input_form">
-                <label for="password"></label>
-                <input type="text" name="password" id="password">
-            </div>
-            <input type="submit" value="submit">
+            <input class="submit_login" type="submit" value="submit">
         </form>
     </div>
 

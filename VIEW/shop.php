@@ -33,7 +33,7 @@ session_start();
                                     <p class="name"><?php echo $product['name']; ?></p>
                                     <p class="price">$<?php echo $product['price']; ?></p>
                                     <p class="description"><?php echo $product['description'];?></p>
-                                    <input type="submit" class="buy btn" value="Add to basket"></input>
+                                    <input type="submit" class="buy btn" value="Add to cart"></input>
                                     <input type="hidden" name="id" value="<?php echo $product['id']; ?>"> 
                             </div>
                         </div>
@@ -50,9 +50,8 @@ session_start();
             <?php }; ?>
         </div>
 
+        
             <?php 
-                // si la session n'est pas admin (!1) (1 etant = a true);
-                // on affiche pas l'admin pannel
                 if($_SESSION['admin'] == 1) {
                     echo '
                             <div class="added_prod">
@@ -78,29 +77,7 @@ session_start();
                             </div>
                         ';
                     };
-                ?>
-        <!-- // <div class="added_prod">
-        //     <form action="../CONTROLS/added_product.php" method="post">
-        //         <div class="input roboto">
-        //             <label for="name">Name</label>
-        //             <input type="text" name="name">
-        //         </div>
-        //         <div class="input roboto">
-        //             <label for="description">Description</label>
-        //             <input type="text" name="description">
-        //         </div>
-        //         <div class="input roboto">
-        //             <label for="image">Image</label>
-        //             <input type="text" name="image">
-        //         </div>
-        //         <div class="input roboto">
-        //             <label for="price">Price</label>
-        //             <input type="text" name="price">
-        //         </div>
-        //             <input class="ajouter roboto" type="submit" value="Add">
-        //     </form>
-        // </div> -->
-        <!--  -->    
+                ?>  
         <?php include_once "social.php";?>
 
         <div class="test"></div>

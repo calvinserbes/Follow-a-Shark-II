@@ -1,5 +1,5 @@
 .login {
-    background: url('../assets/images/pictures/mouette.jpg') center;
+    background: url('../assets/images/pictures/login.jpg') center;
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -8,3 +8,63 @@
     justify-content: center;
     align-items: center;
 }
+
+.login form {
+    font-family: 'Roboto', serif;
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login form .input {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+
+.login form input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.login form input:focus {
+    border: none;
+    outline: none;
+}
+
+.login form input[type='text']{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.login form input[type='password']{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.login form input::placeholder {
+    color: #fff;
+}
+
+.login form .submit_login {
+    cursor: pointer;
+    transition: .5s;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.login form .submit_login:hover {
+    background: #ffffff36;
+}   

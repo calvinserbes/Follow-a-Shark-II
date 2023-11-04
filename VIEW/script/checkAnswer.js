@@ -12,7 +12,7 @@ function checkAnswer(questionId) {
         .then(response => response.json())
         .then(data => {
             if (data.is_correct) {
-                alert('Bonne réponse momo le bg !');
+                alert('Bonne réponse !');
             } else {
                 alert('Mauvaise réponse. La bonne réponse est: ' + data.correct_answer);
             }

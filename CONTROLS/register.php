@@ -7,6 +7,9 @@ $password = $_POST['password'];
 $email = $_POST['email'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-createUser($mysqli, $username, $password, $email, $first_name, $last_name);
+createUser($mysqli, $username, $hashedPassword, $email, $first_name, $last_name);
+
+header('Location: ../VIEW/login.php');
 ?>

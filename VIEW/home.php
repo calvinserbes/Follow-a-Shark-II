@@ -22,7 +22,6 @@ session_start()
       </video>
 
       <header class="header">
-
               <div class="present">
                 <h2 class="text-shadow">"All fish eat people, only the shark is blamed."</h2>
                 <h1 class="text-shadow">Follow a Shark</h1>
@@ -35,43 +34,58 @@ session_start()
         </header>
 
         <article class="plonger">
-
           <div class="width">
-            <div class="picture">
-              <img src="assets/images/pictures/plongeur.jpg" alt="Photo de plongeur" class="plongeur_pic">
-            </div>
+              <div class="picture">
+                <img src="assets/images/pictures/plongeur.jpg" alt="Photo de plongeur" class="plongeur_pic">
+              </div>
 
-            <div class="text_plongeur">
-              <h2>Lorem Ipsum</h2>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Rem maxime nisi expedita unde reiciendis, 
-                perspiciatis officia consequuntur libero laudantium in quam 
-                corrupti culpa vitae non similique. 
-                Sunt necessitatibus earum similique?
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Rem maxime nisi expedita unde reiciendis, 
-                perspiciatis officia consequuntur libero laudantium in quam 
-                corrupti culpa vitae non similique. 
-              </p>
-              <a class="btn" href="quiz.php">Essayer notre Quizz !</a>
-            </div>
-        </div>
-
+              <div class="text_plongeur">
+                <h2>Lorem Ipsum</h2>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                  Rem maxime nisi expedita unde reiciendis, 
+                  perspiciatis officia consequuntur libero laudantium in quam 
+                  corrupti culpa vitae non similique. 
+                  Sunt necessitatibus earum similique?
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                  Rem maxime nisi expedita unde reiciendis, 
+                  perspiciatis officia consequuntur libero laudantium in quam 
+                  corrupti culpa vitae non similique. 
+                </p>
+                <a class="btn" href="quiz.php">Essayer notre Quizz !</a>
+              </div>
+          </div>
         </article>
         
           <?php include_once "social.php";?>
 
-        <div class="test">
-            
-        </div>
+        <article id="about_us">
+            <div class="about">
+              <h2>About us</h2>
+            </div>
+            <div class="about_text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                 Pellentesque non ornare mauris, in finibus lacus.
+                 In interdum tellus nulla, vitae pretium nibh dapibus quis. 
+                 Proin ante odio, euismod vitae leo sed, interdum commodo felis. 
+                 Nam ultricies vulputate sem luctus eleifend. 
+                 Fusce suscipit rutrum est, id pretium risus aliquet et. 
+                 Nullam nec mi sit amet metus fringilla mattis. 
+                 Nulla bibendum elit augue, sit amet lacinia ante vulputate interdum. 
+                 Vestibulum semper, justo ac posuere sodales, odio odio volutpat ipsum, ac ullamcorper elit odio at arcu. 
+                 Pellentesque ultricies, erat sit amet bibendum tempus, quam nunc feugiat nulla, id condimentum ante nisl non lectus. 
+                 Etiam dapibus libero metus, vel lobortis arcu viverra ut. 
+              </p>
+              <div class='img_about'></div>
+            </div>
+        </article>
 
-        <div class="testt"></div>
     </div>
 
 
     <script src="script/mobileMenu.js"></script>
-    <script src="script/colorScrollNav.js"></script>
+    <!-- <script src="script/colorScrollNav.js"></script> -->
     <script>
     // video player
     let video = document.querySelector(".background-video");

@@ -1,4 +1,3 @@
-  // responsive navbar
   const burger = document.querySelector(".burger")
   const navItems = document.querySelector(".nav-items")
 

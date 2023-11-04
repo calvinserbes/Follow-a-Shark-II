@@ -1,15 +1,12 @@
 DROP DATABASE IF EXISTS FAS;
-
 CREATE DATABASE FAS;
 USE FAS;
-
 DROP USER IF EXISTS calvin@'127.0.0.1';
 CREATE USER calvin@'127.0.0.1' IDENTIFIED BY 'mdp';
-
 GRANT ALL PRIVILEGES ON FAS.*to calvin@'127.0.0.1';
 
 -- user
-CREATE TABLE `user` (
+CREATE TABLE user (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   admin BOOLEAN,
   username VARCHAR(255) NOT NULL,
@@ -18,12 +15,8 @@ CREATE TABLE `user` (
   first_name VARCHAR(255),
   last_name VARCHAR(255)
 );
-
-INSERT INTO user (id, admin, username, password, email, first_name, last_name) VALUES (1, 1, "admin", "admin", 'admin@mail.com', 'calvin', 'serbes');
-INSERT INTO user (id, admin, username, password, email, first_name, last_name) VALUES (2, 0, "calvin", "serbes", "calvin@gmail.com", "calvin", "serbes");
-
 -- shop
-CREATE TABLE `product` (
+CREATE TABLE product (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255),
   description MEDIUMTEXT,
@@ -31,56 +24,57 @@ CREATE TABLE `product` (
   price FLOAT
 );
 
-CREATE TABLE `order` (
+CREATE TABLE orders (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   id_client INT,
-  FOREIGN KEY (id_client) REFERENCES `user` (id)
+  etat ENUM("Commande en préparation", "Commande expédié", "Commande reçu"),
+  FOREIGN KEY (id_client) REFERENCES user (id)
 );
 
-CREATE TABLE `ligne_co` (
+CREATE TABLE ligne_co (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   id_prod INT,
   id_order INT,
   qt INT,
-  FOREIGN KEY (id_prod) REFERENCES `product` (id),
-  FOREIGN KEY (id_order) REFERENCES `order` (id)
-)
+  FOREIGN KEY (id_prod) REFERENCES product (id),
+  FOREIGN KEY (id_order) REFERENCES orders (id)
+);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/1.png', 10);
+VALUES('Peluche Requin Baleine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/1.png', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Abysse', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/2.png', 10);
+VALUES('Peluche Requin Blanc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/2.png', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/3.jpeg', 10);
+VALUES('Bracelet Requin Baleine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/3.jpeg', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/4.jpeg', 10);
+VALUES('Bracelet Requin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/4.jpeg', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/5.jpeg', 10);
+VALUES('Mug Requin Blanc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/5.jpeg', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/6.png', 10);
+VALUES('Poster Grand Blanc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/6.png', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/7.jpg', 10);
+VALUES('Peluche White', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/7.jpg', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/8.jpg', 10);
+VALUES('Affiche "les requins"', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/8.jpg', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/9.png', 10);
+VALUES('Mug Shark Cookies', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/9.png', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/1.png', 10);
+VALUES('Peluche Requin Baleine', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/1.png', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/2.png', 10);
+VALUES('Peluche Requin Blanc', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/2.png', 10);
 
 INSERT INTO product (name, description, image, price)
-VALUES('Peluche Requin Marteau', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/5.jpeg', 10);
+VALUES('Mug Shark', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/5.jpeg', 10);
 
 
 -- Quiz

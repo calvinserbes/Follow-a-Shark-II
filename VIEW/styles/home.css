@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'California';
-    src: url('../assets/fonts/California.ttf');
-}
-
 .home {
     width: 100%;
 }
@@ -19,37 +14,9 @@
     z-index: -1;
 }
 
-#btnVideo {
-    letter-spacing: 4px;
-    position: absolute;
-    bottom: 5px;
-    left: 50px;
-    z-index: 3;
-    background: 0;
-    border: 0;
-    transform: translateX(-50%);
-    color: #ffffff;
-    padding: 5px;
-    font-family: 'Roboto', serif;
-    font-weight: 900;
-    font-size: 35px;
-}
-
-.header h3 {
-    font-family: 'Roboto', serif;
-    color: #fff;
-    font-weight: 300;
-    font-size: 30px;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-}
-
 .header {
     height: 100vh;
     width: 100%;
-    /* background: url('../assets/images/whale-shark1500.jpg') center; */
-    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,32 +34,41 @@
 
 .header .present h1 {
     font-size: 140px;
-    font-family: 'Roboto', serif;
     opacity: 80%;
+}
+
+.header h3 {
+    font-family: 'Roboto', serif;
+    color: #fff;
+    font-weight: 300;
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
 }
 
 .header .present .decouverte {
     margin-top: 25px;
 }
 
-.audioplayer {
-    width: 100%;
-}
-
-
-.audio {
+#btnVideo {
+    letter-spacing: 4px;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    box-shadow: 10px 11px 14px -3px rgba(0,0,0,0.66);
-    width: 150px;
-    height: 30px;
+    bottom: 5px;
+    left: 50px;
+    background: 0;
+    border: none;
+    color: #ffffff;
+    padding: 5px;
+    font-family: 'Roboto', serif;
+    font-weight: 900;
+    font-size: 35px;
 }
+
 
 .plonger {
     font-family: 'Roboto', serif;
-    margin-top: 150px;
-    margin-bottom: 50px;
+    margin-top: 25px;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -131,13 +107,46 @@
     margin-top: 25px;
 }
 
-.test {
-    height: 200vh;
+#about_us {
+    height: 100vh;
     background: url('../assets/images/pictures/whale-shark2000.jpg') center;
     background-size: cover;
+    font-family: 'Roboto', serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.testt {
-    height: 150vh;
+#about_us .about h2 {
+    font-size: 75px;
+    border-bottom: 3px solid #FF6B00;
+    margin-bottom: 25px;
 }
+
+#about_us .about_text {
+    width: 70%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#about_us .about_text p {
+    width: 55%;
+    letter-spacing: 3px;
+}
+
+#about_us .about_text .img_about {
+    background: url('../assets/images/pictures/meduse.jpg') center;
+    background-size: cover;
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+
+/* responcive */
 
