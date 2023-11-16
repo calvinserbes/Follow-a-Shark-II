@@ -1,7 +1,6 @@
 <?php
 include_once '../MODEL/config.php';
 include_once '../MODEL/order.php';
-
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // inserer dans ligne_co
         insertIntoLigneCo($mysqli, $id_prod, $id_order, $qt);
     }
-
     header('Location: ../VIEW/profil.php');
     // vider le panier
     unset($_SESSION['cart']);
 };
 ?>
+

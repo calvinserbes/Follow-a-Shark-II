@@ -76,9 +76,18 @@ VALUES('Peluche Requin Blanc', 'Lorem ipsum dolor sit amet, consectetur adipisci
 INSERT INTO product (name, description, image, price)
 VALUES('Mug Shark', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan aliquet. Nullam eget malesuada ex, eu fermentum arcu. Nunc viverra porta suscipit. Donec non.', '../VIEW/assets/images/product/5.jpeg', 10);
 
+-- Article
+CREATE TABLE article (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  a_title VARCHAR(255),
+  a_image TEXT,
+  a_text TEXT
+);
+
+INSERT INTO article (a_title, a_image, a_text)
+VALUES('The Great White Shark', 'https://i.guim.co.uk/img/media/3aab545d0cd5f6831942707f170c9f8e7dd76d07/0_214_5254_3153/master/5254.jpg?width=700&quality=85&auto=format&fit=max&s=6423bb0f4c27e7b61be5d627686943ce', 'freestarfreestar Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida arcu nibh, at mattis lorem tincidunt ac. Praesent scelerisque porttitor risus sit amet tempor. Integer in cursus quam. Cras sit amet felis ac ante pulvinar sollicitudin. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent nec mi nulla. Cras vel tincidunt lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer felis augue, porta porta libero sed, suscipit accumsan lacus. Sed id ante non eros ullamcorper egestas. Proin nec lorem a sem iaculis pulvinar id et dui. Morbi mollis leo eu eros mattis, eu sagittis lorem pellentesque. Nulla sapien tellus, lacinia sed lorem a, ornare semper neque. Donec eget ante nisi. Aenean pretium lorem sed pretium auctor. Nulla porta congue tempus. Aenean at mollis felis, in tristique ante. Maecenas euismod, metus non sollicitudin porttitor, leo neque mattis massa, nec cursus libero justo vitae magna. Nam accumsan erat a lorem interdum, sit amet dictum purus interdum.');
 
 -- Quiz
-
 CREATE TABLE Quiz (
   id INT PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(255)

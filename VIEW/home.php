@@ -10,6 +10,10 @@ session_start()
     <link rel="stylesheet" href="styles/all.css">
     <link rel="stylesheet" href="styles/home.css">
     <?php include_once "assets/fonts/font.php";?>
+    <?php 
+      include_once "../MODEL/article.php";
+      $newarticle = readArticle($mysqli);
+    ?>
 </head>
 <body>
     <?php include_once "navigation.php";?>
@@ -66,20 +70,36 @@ session_start()
             <div class="about_text">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                 Pellentesque non ornare mauris, in finibus lacus.
-                 In interdum tellus nulla, vitae pretium nibh dapibus quis. 
-                 Proin ante odio, euismod vitae leo sed, interdum commodo felis. 
-                 Nam ultricies vulputate sem luctus eleifend. 
-                 Fusce suscipit rutrum est, id pretium risus aliquet et. 
-                 Nullam nec mi sit amet metus fringilla mattis. 
-                 Nulla bibendum elit augue, sit amet lacinia ante vulputate interdum. 
-                 Vestibulum semper, justo ac posuere sodales, odio odio volutpat ipsum, ac ullamcorper elit odio at arcu. 
-                 Pellentesque ultricies, erat sit amet bibendum tempus, quam nunc feugiat nulla, id condimentum ante nisl non lectus. 
-                 Etiam dapibus libero metus, vel lobortis arcu viverra ut. 
+                Pellentesque non ornare mauris, in finibus lacus.
+                In interdum tellus nulla, vitae pretium nibh dapibus quis. 
+                Proin ante odio, euismod vitae leo sed, interdum commodo felis. 
+                Nam ultricies vulputate sem luctus eleifend. 
+                Fusce suscipit rutrum est, id pretium risus aliquet et. 
+                Nullam nec mi sit amet metus fringilla mattis. 
+                Nulla bibendum elit augue, sit amet lacinia ante vulputate interdum. 
+                Vestibulum semper, justo ac posuere sodales, odio odio volutpat ipsum, ac ullamcorper elit odio at arcu. 
+                Pellentesque ultricies, erat sit amet bibendum tempus, quam nunc feugiat nulla, id condimentum ante nisl non lectus. 
+                Etiam dapibus libero metus, vel lobortis arcu viverra ut. 
               </p>
               <div class='img_about'></div>
             </div>
         </article>
+
+        <div class="lesarticles">
+          <?php foreach ($newarticle as $article) {?>
+            <article class="articles">
+              <div class="article_image" style="background: url('<?php echo $article["a_image"]; ?>') center; background-size: cover;">
+                <h3 class="article_title"><?php echo $article["a_title"];?></h3>
+              </div>
+              <div class="article_text">
+                <p>
+                    <?php echo $article["a_text"];?>
+                </p>
+              </div>
+            </article>
+          <?php }; ?>
+        </div>
+
 
     </div>
 

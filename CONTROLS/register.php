@@ -13,3 +13,6 @@ createUser($mysqli, $username, $hashedPassword, $email, $first_name, $last_name)
 
 header('Location: ../VIEW/login.php');
 ?>
+
+
+
